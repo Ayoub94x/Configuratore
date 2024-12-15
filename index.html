@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuratore Contenitori</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <img src="Logo.jpg" alt="Logo" class="logo">
+      <h1 style="text-align: center;">Configuratore Contenitori</h1>
+    </div>
+  </header>
+
+  <main>
+    <section id="registration" class="section">
+      <div class="container">
+        <h2>Inserisci i tuoi dati</h2>
+        <form id="userForm">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
+          
+          <label for="cognome">Cognome:</label>
+          <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" required>
+          
+          <label for="azienda">Azienda:</label>
+          <input type="text" id="azienda" name="azienda" placeholder="Inserisci il nome dell'azienda" required>
+          
+          <button type="submit" class="btn-primary">Conferma</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="configurator" class="section" style="display:none;">
+      <div class="container">
+        <!-- Il configuratore verrà generato dinamicamente qui -->
+      </div>
+    </section>
+
+    <section id="resoconto" class="section" style="display:none;">
+      <div class="container">
+        <!-- Resoconto e opzioni per scaricare il PDF e inviare l'email -->
+      </div>
+    </section>
+  </main>
+
+
+
+  <div id="messageModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <h2>Configurazione Inviata!</h2>
+      <p>Il tuo PDF è stato scaricato. Clicca sul bottone qui sotto per aprire la tua applicazione email con i campi precompilati. <strong>Nota:</strong> Dovrai allegare manualmente il file <code>resoconto.pdf</code> all'email prima di inviarla.</p>
+      <a href="#" id="emailLink" class="email-link" target="_blank">Apri Email</a>
+    </div>
+  </div>
+
+  <div id="warningModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeWarningModal()">&times;</span>
+      <h2>Attenzione</h2>
+      <p id="warningMessageText"></p>
+      <button class="btn-secondary" onclick="closeWarningModal()">Chiudi</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
